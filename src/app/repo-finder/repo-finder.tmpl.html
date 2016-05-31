@@ -1,0 +1,22 @@
+<input type="text" #finder class="form-control"
+  placeholder="Type and press enter to fetch GitHub REPO list"
+  (keyup.enter)="getPage(finder.value, '1' )"
+>
+<div class="padding-repo-list">
+    <div *ngFor="let repo of repos |  paginate: { id: 'server',
+      itemsPerPage: 10,
+      currentPage: page, totalItems: totalCount }"
+      >
+      <repo-element
+        [repo]="repo"
+        [popularityValueMax]='popularityValueMax'
+        [selectedRepo]="selectedRepo"
+        (repoSelected)="selectAndEmitRepo($event)">
+      </repo-element>
+    </div>
+
+  <div [hidden]="!repos.length">
+    <pagination-controls (pageChange)="getPage(finder.value, $event)" id="server"></pagination-controls>
+  </div>
+</div>
+<!-- hello@ng2@12 -->

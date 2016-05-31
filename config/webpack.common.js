@@ -81,6 +81,7 @@ module.exports = {
     alias: {
       // legacy imports pre-rc releases
       'angular2': helpers.root('node_modules/@angularclass/angular2-beta-to-rc-alias/dist/beta-17')
+      // 'firebase': helpers.root('node_modules/firebase')
     },
 
   },
@@ -161,10 +162,16 @@ module.exports = {
        *
        * See: https://github.com/webpack/raw-loader
        */
-      {
-        test: /\.css$/,
-        loader: 'raw-loader'
-      },
+      // {
+      //   test: /\.css$/,
+      //   loader: 'raw-loader'
+      // },
+      
+      { test: /\.css$/, loader: 'style-loader!css-loader' },
+      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
+      { test: /\.(woff|woff2)$/, loader:"url?prefix=font/&limit=5000" },
+      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
+      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" },
 
       /* Raw loader support for *.html
        * Returns file content as string

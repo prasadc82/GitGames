@@ -1,0 +1,21 @@
+<div class="element" (click)="repoSelect(repo)"
+ [class.active]="repo == selectedRepo">
+    <div class="display">
+      <span class="col-xs-5">
+        <a [href]="repo.html_url" target="_blank" (click)="$event.stopPropagation();">
+          <i class="fa fa-fw fa-lg fa-home">
+          </i>
+          <strong>{{repo.name}}</strong>
+        </a>
+      </span>
+      <span class="">
+        <i class="fa fa-fw fa-star"></i> {{ repo.stargazers_count}} &nbsp;
+        <i class="fa fa-fw fa-code-fork"></i> {{ repo.forks}} &nbsp;
+        <i class="fa fa-fw fa-binoculars"></i> {{repo.watchers}} &nbsp;
+
+      </span>
+      <i [hidden]="repo!==selectedRepo" class="fa fa-check fa-lg fa-fw pull-right"></i>
+    </div>
+    <div class="meter" widthanimation [toWidth]="repo.popularity_meter">
+    </div>
+</div>

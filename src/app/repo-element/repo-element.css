@@ -1,0 +1,25 @@
+:host{
+ display: block;
+
+}
+.element{
+  margin: 10px 0px;
+  border: 1px solid #ccc;
+  position: relative;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.meter{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(154, 205, 50,0.4);
+  height: 100%;
+  z-index: -1;
+  border-radius: 5px;
+  transition: width ease-out 0.8s;
+}
+.display{
+  padding: 10px;
+
+}

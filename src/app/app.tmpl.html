@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <h1 class="text-center text-success header">
+    &nbsp;&nbsp;Git<i class="fa fa-fw fa-lg fa-github-alt fa-spin"></i>ames &nbsp;&nbsp;
+  </h1>
+  <p class="small text-muted text-center">
+    Note: popularity meter is based on the relative star counts for a repository.
+  </p>
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <ul class="nav nav-pills text-center">
+    <li>
+      <a [routerLink]="['LiveComparision']">Live Comparision</a>
+    </li>
+    <li>
+      <a [routerLink]="['ListGames']">List Games</a>
+    </li>
+  </ul>
+    </div>
+  </div>
+  <hr/>
+  <router-outlet></router-outlet>
+</div>

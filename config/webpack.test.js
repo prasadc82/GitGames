@@ -70,11 +70,11 @@ module.exports = {
        *
        * See: https://github.com/wbuchwalter/tslint-loader
        */
-      {
-        test: /\.ts$/,
-        loader: 'tslint-loader',
-        exclude: [helpers.root('node_modules')]
-      },
+      // {
+      //   test: /\.ts$/,
+      //   loader: 'tslint-loader',
+      //   exclude: [helpers.root('node_modules')]
+      // },
 
       /**
        * Source map loader support for *.js files
@@ -136,7 +136,7 @@ module.exports = {
        *
        * See: https://github.com/webpack/raw-loader
        */
-      { test: /\.css$/, loader: 'raw-loader', exclude: [helpers.root('src/index.html')] },
+      // { test: /\.css$/, loader: 'raw-loader', exclude: [helpers.root('src/index.html')] },
 
       /**
        * Raw loader support for *.html
@@ -144,6 +144,13 @@ module.exports = {
        *
        * See: https://github.com/webpack/raw-loader
        */
+      { test: /\.css$/, loader: 'style-loader!css-loader' },
+      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
+      { test: /\.(woff|woff2)$/, loader:"url?prefix=font/&limit=5000" },
+      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
+      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" },
+
+      
       { test: /\.html$/, loader: 'raw-loader', exclude: [helpers.root('src/index.html')] }
 
     ],

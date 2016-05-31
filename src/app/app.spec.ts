@@ -2,22 +2,24 @@ import {
   beforeEachProviders,
   inject,
   injectAsync,
-  it
+  it,
 } from '@angular/core/testing';
 
 // Load the implementations that should be tested
 import { App } from './app.component';
-import { AppState } from './app.service';
+// import { AppState } from './app.service';
+
+import {RepoManagerService} from './services/repo-manager';
 
 describe('App', () => {
   // provide our implementations or mocks to the dependency injector
   beforeEachProviders(() => [
-    AppState,
-    App
+    App,
+    RepoManagerService
   ]);
 
-  it('should have a url', inject([ App ], (app) => {
-    expect(app.url).toEqual('https://twitter.com/AngularClass');
+  it('repo manager to be set', inject([ App ], (app) => {
+    expect(app._repoManager).toBeDefined();
   }));
 
 });

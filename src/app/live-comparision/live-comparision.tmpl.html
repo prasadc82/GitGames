@@ -1,0 +1,26 @@
+<div class="row top-padding-25">
+  <div class="form-group col-xs-6">
+    <repo-finder (stats)="statsLeft = $event;activateButton();">
+    </repo-finder>
+  </div>
+  <div class="form-group col-xs-6">
+    <repo-finder (stats)="statsRight = $event;activateButton();"></repo-finder>
+  </div>
+</div>
+
+<div class="row">
+  <!-- Repo 1 Stats -->
+  <div class="col-xs-6 " [hidden]="isStatsEmpty(statsLeft)">
+    <game-element [detail]="statsLeft"></game-element>
+  </div>
+
+  <!-- Repo 2 Stats -->
+  <div class="col-xs-6" [hidden]="isStatsEmpty(statsRight)">
+    <game-element [detail]="statsRight"></game-element>
+</div>
+
+<div class="row text-center padding-bottom-30" [hidden]="isStatsEmpty(statsRight) || isStatsEmpty(statsLeft)">
+  <button type="button" [disabled]="saveButtonDisabled"  class="btn btn-info" (click)="saveComparison(statsLeft, statsRight)">
+    {{ saveButtonMessage }}
+  </button>
+</div>

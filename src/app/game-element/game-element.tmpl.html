@@ -1,0 +1,17 @@
+<div>
+  <table class="table table-responsive bg-warning border-10">
+    <thead>
+      <tr>
+          <th>Owner <i class="fa fa-fw fa-user"></i></th>
+          <th>{{detail.owner && detail.owner.login | uppercase}}</th>
+      </tr>
+    </thead>
+    <tr>
+      <td>Repo URL:<i class="fa fa-fw fa-link"></i></td>
+      <td> <a href="{{detail.html_url}}" target="_blank">{{detail.html_url}}</a></td>
+    </tr>
+    <tr><td>Stars:<i class="fa fa-fw fa-star"></i></td> <td>{{detail.stargazers_count}}</td></tr>
+    <tr><td>Forks:<i class="fa fa-fw fa-code-fork"></i></td> <td>{{detail.forks_count}}</td></tr>
+    <tr><td>Watchers:<i class="fa fa-fw fa-binoculars"></i></td> <td>{{detail.watchers_count}}</td></tr>
+  </table>
+</div>

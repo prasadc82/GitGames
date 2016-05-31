@@ -9,6 +9,9 @@
 // Prefer CoreJS over the polyfills above
 import 'core-js/es6';
 import 'core-js/es7/reflect';
+import 'firebase/lib/firebase-web';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 require('zone.js/dist/zone');
 
 // Typescript emit helpers polyfill

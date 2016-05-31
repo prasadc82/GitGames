@@ -1,8 +1,11 @@
-html, body{
-  height: 100%;
-  font-family: Arial, Helvetica, sans-serif
+.router-link-active{
+  color: #fff;
+  background-color: #337ab7;
 }
-
-span.active {
-  background-color: gray;
+.header{
+  text-decoration: underline;
+  transition: transform ease-in-out 1s;
+}
+.header:hover{
+  transform: scale(1.2);
 }
