@@ -1,5 +1,4 @@
-import {Component, Input, Output, EventEmitter, ViewEncapsulation, } from '@angular/core';
-import { Animation } from '../animation/animation';
+import {Component, Input, Output, EventEmitter, ViewEncapsulation, trigger, state, transition, style, animate } from '@angular/core';
 
 let css = require('./repo-element.css')
 @Component({
@@ -7,7 +6,16 @@ let css = require('./repo-element.css')
   template: require('./repo-element.html'),
   styles: [`${css}`],
   encapsulation: ViewEncapsulation.None,
-  directives: [Animation]
+  animations: [
+    trigger('toWidth', [
+      state('void', style({width: '0%'})),
+      state('*', style({width: '*%'})),
+      transition('void => *', [
+        style({width: '0%'}),
+        animate('300ms ease-in', style({width: '*%'}))
+      ])
+    ]) 
+  ]
 })
 
 export class RepoElement {
@@ -15,9 +23,6 @@ export class RepoElement {
   @Input() popularityValueMax: number;
   @Input() selectedRepo: {};
   @Output() repoSelected: EventEmitter<any> = new EventEmitter();
-  popularity_meter: string = '0%';
-  timer: any;
-
   constructor(){}
 
   repoSelect(repo) {
