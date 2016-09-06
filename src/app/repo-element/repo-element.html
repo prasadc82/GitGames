@@ -16,6 +16,5 @@
       </span>
       <i [hidden]="repo!==selectedRepo" class="fa fa-check fa-lg fa-fw pull-right"></i>
     </div>
-    <div class="meter" widthanimation [toWidth]="repo.popularity_meter">
-    </div>
+    <div class="meter" width="0px" [@toWidth]="repo.popularity_meter"></div>
 </div>

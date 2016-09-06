@@ -32,6 +32,7 @@ export class RepoFinder {
   getPage(queryString, page){
     Observable.from(this._repoList.getRepos(queryString, page))
     .map((respone) => {
+      console.log(respone);
       if(page==1) {
         this.popularityValueMax = respone.items[0].stargazers_count;;
       }
