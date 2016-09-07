@@ -6,10 +6,10 @@ import {Component, Input} from '@angular/core';
   styles: [`
   .border-10{border-radius: 10px;}
   .text-cap{text-transform: capitalize;}
-  `],
+  `]
 
 })
-export class GameElement{
+export class GameElement {
   @Input() detail;
 
   ngOnInit() {

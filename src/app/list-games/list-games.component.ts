@@ -10,19 +10,19 @@ let css = require('./list-games.css');
   directives: [GameElement]
 })
 
-export class ListGames implements OnInit{
+export class ListGames implements OnInit {
 
-  listGames: Array<any>=[];
+  listGames: Array<any>= [];
   listGamesMessage: string = 'Fetching games list...';
 
-  constructor(public _repoManager: RepoManagerService){
+  constructor(public _repoManager: RepoManagerService) {
 
   }
 
-  ngOnInit(){
-    this._repoManager.listGames().once('value',(snapshot)=> {
+  ngOnInit() {
+    this._repoManager.listGames().once('value', (snapshot) => {
       let response = snapshot.val();
-      if(response) {
+      if (response) {
         let keys = Object.keys(response);
         let games = [];
         keys.forEach((key) => games.push((response[key])));
@@ -33,7 +33,7 @@ export class ListGames implements OnInit{
         Please go to the live comparision to enjoy this game. :)`;
       }
 
-    })
+    });
   }
 
 }
