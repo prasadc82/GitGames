@@ -1,13 +1,9 @@
 import {Component} from '@angular/core';
-import {RepoFinder} from './../repo-finder';
-import {RepoManagerService} from '../services/repo-manager';
-import {GameElement } from './../game-element'
+import {RepoManagerService} from './../../../services/repo-manager';
 
 @Component({
   selector: 'live-comparision',
   template: require('./live-comparision.tmpl.html'),
-  directives: [RepoFinder, GameElement],
-  providers: [RepoManagerService],
   styles: [`
     .padding-bottom-30{
       padding-bottom: 30px;

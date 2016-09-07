@@ -17,16 +17,16 @@ let games = [{
 }];
 
 describe('List Games', () => {
-
+  
   beforeEachProviders(() => [
     ListGames,
     RepoManagerService
   ]);
-
+  
   it('repo-manager to be set', inject([ListGames], (lg) => {
     expect(lg._repoManager).toBeDefined();
   }));
-
+  
   it('ngOninit with non-empty response for list-games', inject([ListGames], (lg) => {
     spyOn(lg._repoManager, 'listGames').and.callFake(() => {
       return { once: (value, callback) => {
@@ -41,7 +41,7 @@ describe('List Games', () => {
     expect(lg.listGames).toEqual([{ forks: 20, owner: { login: 'prasadc'}}]);
     expect(lg.listGamesMessage).toEqual('Fetching games list...');
   }));
-
+  
   it('ngOninit with empty response for list-games', inject([ListGames], (lg) => {
     spyOn(lg._repoManager, 'listGames').and.callFake(() => {
       return { once: (value, callback) => {
